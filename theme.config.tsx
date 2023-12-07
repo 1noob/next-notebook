@@ -20,6 +20,8 @@ const config: DocsThemeConfig = {
               property="og:description"
               content={frontMatter.description || 'My Notebook'}
           />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" type="image/jpeg" sizes="180x180"/>
+          <link rel="icon" href="/apple-touch-icon.jpg" type="image/jpeg" />
         </>
      )
   },
