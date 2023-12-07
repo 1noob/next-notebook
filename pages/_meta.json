@@ -1,15 +1,15 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "index": "Note",
   "about": {
     "title": "About",
     "type": "page"
   },
+  "demo": "Demo",
+  "acm": "ACM",
   "contact": {
-    "title": "Contact ↗",
+    "title": "Blog",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://blog.jackey.love",
     "newWindow": true
   }
 }
