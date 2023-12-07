@@ -62,9 +62,9 @@ const config: DocsThemeConfig = {
         <div className="nx-mx-auto nx-flex nx-h-[var(--nextra-navbar-height)] nx-max-w-[90rem] nx-items-center nx-pl-[env(safe-area-inset-left)] nx-pr-[env(safe-area-inset-right]">
             <Link
                 href="https://github.com/1noob/blog-view-next"
-                className="rounded-md nx-p-4 nx-text-sm nx-tracking-tight"
+                className="rounded-md nx-p-4 nx-tracking-tight"
             >
-                <div className="nx-flex nx-items-center word-space nx-font-medium nx-gap-2 nx-p-2">
+                <div className="nx-flex nx-items-center word-space nx-font-medium nx-gap-2 nx-p-2 nx-text-xs">
                   <span className="status-indicator nx-block">
                   </span>
                   <span>
