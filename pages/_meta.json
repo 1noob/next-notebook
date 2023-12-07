@@ -1,9 +1,5 @@
 {
   "index": "Note",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
   "acm": "ACM",
   "contact": {
     "title": "Blog",
