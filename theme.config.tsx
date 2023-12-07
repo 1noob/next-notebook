@@ -20,6 +20,9 @@ const config: DocsThemeConfig = {
               property="og:description"
               content={frontMatter.description || 'My Notebook'}
           />
+          <meta name="apple-mobile-web-app-capable" content="yes"/>
+          <meta name="apple-mobile-web-app-title" content="Notebook"/>
+          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
           <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" type="image/jpeg" sizes="180x180"/>
           <link rel="icon" href="/apple-touch-icon.jpg" type="image/jpeg" />
         </>
