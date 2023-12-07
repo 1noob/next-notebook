@@ -24,7 +24,7 @@ const config: DocsThemeConfig = {
           <meta name="apple-mobile-web-app-title" content="Notebook"/>
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
           <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" type="image/jpeg" sizes="180x180"/>
-          <link rel="icon" href="/apple-touch-icon.jpg" type="image/jpeg" />
+          <link rel="icon" href="/icon.png" type="image/png" />
         </>
      )
   },
