@@ -1,0 +1,33 @@
+# 图论
+
+
+## 链式前向星
+
+这是一个 acm 比赛里比较喜欢的一个建图结构，原理是尾插法，使用 Head 数组保存一条边的源点 u
+
+```cpp copy
+struct node {
+    int v,w,next;
+} edge[MAX_E] ;
+
+int Head[MAX_N];
+int top;
+
+void init(){
+    top = 0;
+    memset(Head,-1,sizeof Head);
+}
+
+void addEdge(int u,int v,int w) {
+    edge[top].v = v;
+    edge[top].w = w;
+    edge[top].next = Head[u];
+    Head[u] = top++;
+}
+```
+
+遍历以 u 为源点的一条边的：
+
+```cpp copy
+for(int i = Head[u]; ~i; i = edge[i].next){}
+```

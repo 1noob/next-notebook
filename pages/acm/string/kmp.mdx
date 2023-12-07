@@ -1,1 +1,48 @@
 # KMP
+
+在计算机科学中，Knuth-Morris-Pratt字符串查找算法（简称为KMP算法）可在一个字符串 S 内查找一个词 W 的出现位置。
+
+一个词在不匹配时本身就包含足够的信息来确定下一个匹配可能的开始位置，此算法利用这一特性以避免重新检查先前配对的字符。
+
+能够实现线性时间搜索的关键是在主串的一些字段中检查模式串的初始字段，可以确切地知道在当前位置之前的一个潜在匹配的位置。
+
+换句话说，在不错过任何潜在匹配的情况下，"预搜索"这个模式串本身并将其译成一个包含所有可能失配的位置对应可以绕过最多无效字符的列表。
+
+## Next
+
+关于 next 数组：前后缀匹配数组，部分匹配表，又称为失配函数，作用是让算法无需多次匹配 W 中的任何字符。
+
+对于单词 W 的第 i 个字符 W[i]，next[i] 定义为字符 W[i] 前面最多有多少个连续的字符和字符串 W 从初始位置开始的字符匹配。
+
+由以上定义可以引申出的结论：
+
+假设 W 的长度为len，则 W 存在最小循环节，循环节的长度为 len-next[len]，子串为 W[0…len-next[len]-1]
+
+
+## Code
+
+```cpp copy
+int next[N],ls,lw;
+
+void get_next(char* p){
+    memset(next,0,sizeof next);
+    for(int i=1;i<lw;i++){
+        int j=next[i];
+        while(j && p[i]!=p[j])
+            j=next[j];
+        next[i+1]=(p[i]==p[j])?j+1:0;
+    }
+}
+
+int KMP(char* w,char* s){
+    int ans=0, j=0;
+    // 对单词 w 进行预处理
+    get_next(w);
+    for(int i=0;i<ls;i++){
+        while(j && s[i]!=w[j]) j=next[j];
+        if(s[i]==w[j]) j++;
+        if(j==lw) ans++;
+    }
+    return ans;
+}
+```

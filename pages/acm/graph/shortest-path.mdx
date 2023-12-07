@@ -1,0 +1,93 @@
+# 最短路
+
+
+## Dijkstra
+
+- 如果存在一条从i到j的最短路径 ($V_{i}.....V_{j},V_{k})$，$V_{i}$ 是 $V_{j}$ 前面的一顶点。那么 $(V_{i}...V_{j})$ 也必定是从 i 到 k 的最短路径
+
+- 为了求出最短路径，*Dijkstra* 就提出了以最短路径长度递增逐次生成最短路径的算法。譬如对于源顶点 $V_{0}$ ，首先选择其直接相邻的顶点中长度最短的顶点 $V_{i}$，那么当前已知可得从 $V_{i}$ 到达 $V_{j}$ 顶点的最短距离：`dist[j]=min(dist[j],dist[i]+matrix[i][j])`
+
+```cpp copy
+#define pa pair<int,int>
+int dis[MAX_N];
+
+void dijkstra(){
+  	//first 为距离，second 为顶点，优先队列每次取出最短距离的节点（堆优化）
+    priority_queue<pa,vector<pa>,greater<pa> >q;
+    memset(dis,INF,sizeof dis);
+    dis[s]=0;
+    q.push(make_pair(0,1));
+    while (!q.empty()){
+        int u=q.top().second; q.pop();
+        for (int i=head[u];~i;i=edge[i].next)
+          if (dis[u]+edge[i].v<dis[edge[i].to])
+          {
+              dis[edge[i].to]=dis[u]+edge[i].v;
+              q.push(make_pair(dis[edge[i].to],edge[i].to));
+          }
+    }
+}
+```
+
+## Floyd
+
+- 以 v 为起点，w 为终点，再以 k 作为 v 和 w 之间的中间点，去判断 $d[v][ w]$ 和 $d[v][k] + d[k][w]$ 的大小关系，如果 $d[v][w] > d[v][k] + d[k][w]$ 说明找到从v→w的更短路径了，此时更改 $d[v][w]$ 的值为 $d[v][k] + d[k][w]$。
+
+- $p[v][w]$ 的值也要相应改成 $p[v][k]$ 的值，因为 $p[v][k]$ 的值是 v→k 最短路径上 v 的后继顶点，而 v→w 这段最短路径是连接在 v→k 这段路径后面的，所以理所当然 $p[v][w]$ 也要指向 $p[v][k]$。
+
+- $d[i][j]$ 表示 i→j 的最短路径权重。
+
+```cpp copy
+void floyd(int n){
+    for (int k = 0; k < n; k++) {
+        for (int v = 0; v < n; v++) {
+            for (int w = 0; w < n; w++) {
+                if (d[v][w] > d[v][k] + d[k][w]) {
+                    d[v][w] = d[v][k] + d[k][w];
+                    p[v][w] = p[v][k]; // p[v][w] 是 v-w 最短路径上 v 的下一顶点
+                }
+            }
+        }
+    }
+}
+```
+
+## SPFA
+
+- 每次迭代，取出队头的点 u ，依次枚举从 u 出发的边 u→v。
+- 设边权为 w，判断 $Dist[u]+w$ 是否小于 $Dist[v]$，若小于则改进 $Dist[v]$，将 $Fa[v]$ 记为 u。
+- 由于源点到 v 的最短距离变小了，有可能 v 可以改进其它的点，所以若 v 不在队列中，就将它放入队尾。
+- 若一个点入队次数超过节点数 n，则有负权环。
+
+
+```cpp copy
+struct node {
+    int v,w,next;
+} edge[MAX_E] ;
+
+int Head[MAX_N];
+int dis[MAX_N];
+bool vis[MAX_N];
+
+void SPFA(int s) {
+    stack<int> Q;
+    memset(dis,INF,sizeof dis);
+    memset(vis,false,sizeof vis);
+    dis[s] = 0 ; vis[s]=true;
+    Q.push(s);
+    while(!Q.empty()) {
+        int u = Q.top(); Q.pop();
+        for(int i = Head[u]; ~i; i = edge[i].next) {
+            int v = edge[i].v;
+            if(dis[v]>dis[u]+edge[i].w) {
+                dis[v] = dis[u]+edge[i].w;
+                if(!vis[v]) {
+                    vis[v]=true;
+                    Q.push(v);
+                }
+            }
+        }
+        vis[u] = false;
+    }
+}
+```
