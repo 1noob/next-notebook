@@ -19,7 +19,4 @@
     word-spacing: -0.2rem;
 }
 
-.ios-pt{
-    padding-top: env(safe-area-inset-top);
-}
 
