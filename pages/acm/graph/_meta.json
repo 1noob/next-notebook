@@ -1,3 +1,6 @@
 {
-  "shortest-path": "最短路"
+  "shortest-path": "最短路算法",
+  "problem-shortest-path": "最短路问题",
+  "network-flow": "网络流算法",
+  "problem-network-flow": "网络流问题"
 }
