@@ -11,7 +11,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export default function MyApp({ Component, pageProps }) {
     return (
-        <main className={`${jetbrainsMono.variable} font-mono pt-[env(safe-area-inset-top)]`}>
+        <main className={`${jetbrainsMono.variable} font-mono`}>
             <Component {...pageProps} />
         </main>
     )
