@@ -1,6 +1,10 @@
 {
   "index": "介绍",
   "acm": "ACM Contest",
+  "demo": {
+    "title": "Demo",
+    "type": "page"
+  },
   "contact": {
     "title": "Blog",
     "type": "page",
