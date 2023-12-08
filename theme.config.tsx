@@ -22,31 +22,23 @@ const config: DocsThemeConfig = {
           />
           <meta name="apple-mobile-web-app-title" content="Notebook"/>
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-            <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" type="image/jpeg" sizes="180x180"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+          <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" type="image/jpeg" sizes="180x180"/>
           <link rel="icon" href="/icon.png" type="image/png" />
         </>
      )
   },
   logo: (
-      <>
+      <div className="nx-flex nx-items-center nx-gap-2">
+        <span className="status-indicator nx-block">
+        </span>
         <span style={{ fontWeight: 800 }}>
-        Song / Notebook
-      </span>
-      </>
+        song/notebook
+        </span>
+      </div>
   ),
   sidebar: {
-    titleComponent({ title, type }) {
-        // if (type === 'separator') {
-        //     return (
-        //         <div className="nx-w-full">{title}</div>
-        //     )
-        // }
-        if (title === 'About') {
-            return <>{title}</>
-        }
-        return <>{title}</>
-    }
+
   },
   toc: {
     backToTop: true
@@ -67,22 +59,7 @@ const config: DocsThemeConfig = {
   docsRepositoryBase: 'https://github.com/1noob/notebook-starter-kit',
   footer: {
     component: (
-        <div className="nx-mx-auto nx-flex nx-h-[var(--nextra-navbar-height)] nx-max-w-[90rem] nx-items-center nx-pl-[env(safe-area-inset-left)] nx-pr-[env(safe-area-inset-right]">
-            <Link
-                href="https://github.com/1noob/note-starter-kit"
-                className="rounded-md nx-p-4 nx-tracking-tight"
-            >
-                <div className="nx-flex nx-items-center word-space nx-font-medium nx-gap-2 nx-p-2 nx-text-xs">
-                  <span className="status-indicator nx-block">
-                  </span>
-                  <span>
-                    Prod Nextra
-                  </span>
-
-                </div>
-            </Link>
-        </div>
-
+        <></>
     )
   },
   useNextSeoProps() {
