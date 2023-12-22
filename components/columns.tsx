@@ -8,7 +8,6 @@ const columnVariants = tv(
       count: {
         one: "columns-1",
         two: "columns-2",
-        three: "columns-3",
       },
     },
     defaultVariants: {
@@ -16,7 +15,7 @@ const columnVariants = tv(
     },
   },
   {
-    responsiveVariants: ["sm", "md", "lg"],
+    responsiveVariants: ["sm", "md"],
   }
 );
 
