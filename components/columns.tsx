@@ -9,7 +9,6 @@ const columnVariants = tv(
         one: "columns-1",
         two: "columns-2",
         three: "columns-3",
-        four: "columns-4"
       },
     },
     defaultVariants: {
@@ -17,7 +16,7 @@ const columnVariants = tv(
     },
   },
   {
-    responsiveVariants: ["sm", "md", "xl"],
+    responsiveVariants: ["sm", "md", "lg"],
   }
 );
 
@@ -27,11 +26,7 @@ export function Columns(props: SlotProps & ColumnVariants) {
   const { count, ...restProps } = props;
   return <Slot
       className={columnVariants({
-          count: {
-              initial: "two",
-              md: "three",
-              xl: "four"
-          }
+          count: count
       })}
       {...restProps}
   />;
