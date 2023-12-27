@@ -2,7 +2,6 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 import { useConfig } from 'nextra-theme-docs'
-import Link from "next/link";
 
 const config: DocsThemeConfig = {
   head: () => {
@@ -24,6 +23,7 @@ const config: DocsThemeConfig = {
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
           <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
           <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" type="image/jpeg" sizes="180x180"/>
+          <link rel="icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="icon" href="/icon.png" type="image/png" />
         </>
      )
@@ -54,9 +54,9 @@ const config: DocsThemeConfig = {
     next: false
   },
   project: {
-    link: 'https://github.com/1noob/notebook-starter-kit',
+    link: 'https://github.com/1noob/next-notebook',
   },
-  docsRepositoryBase: 'https://github.com/1noob/notebook-starter-kit',
+  docsRepositoryBase: 'https://github.com/1noob/next-notebook',
   footer: {
     component: (
         <></>
